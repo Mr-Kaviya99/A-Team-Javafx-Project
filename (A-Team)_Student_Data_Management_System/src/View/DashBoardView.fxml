@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardViewController">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="250.0" style="-fx-background-color: #761A9D;">
+         <children>
+            <Button fx:id="btnStudentManagement" alignment="TOP_LEFT" layoutX="9.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnStudentManagementOnAction" prefHeight="72.0" prefWidth="226.0" style="-fx-background-color: #4D4D4D;" text="Student&#10;Management&#10;" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnMonthlyPayments" alignment="TOP_LEFT" layoutX="9.0" layoutY="569.0" mnemonicParsing="false" onAction="#btnMonthlyPaymentsOnAction" prefHeight="72.0" prefWidth="226.0" style="-fx-background-color: #4D4D4D;" text="Monthly&#10;Payments" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnExams_Marks" alignment="TOP_LEFT" layoutX="9.0" layoutY="480.0" mnemonicParsing="false" onAction="#btnExams_MarksOnAction" prefHeight="72.0" prefWidth="226.0" style="-fx-background-color: #4D4D4D;" text="Exams &amp; &#10;Marks" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnStudentsAttendance" alignment="TOP_LEFT" layoutX="9.0" layoutY="391.0" mnemonicParsing="false" onAction="#btnStudentsAttendanceOnAction" prefHeight="72.0" prefWidth="226.0" style="-fx-background-color: #4D4D4D;" text="Students&#10;Attendance" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imgHome" fitHeight="72.0" fitWidth="74.0" layoutX="157.0" layoutY="120.0" onMouseClicked="#imgHomeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/home_64px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgStManage" fitHeight="72.0" fitWidth="170.0" layoutX="157.0" layoutY="308.0" onMouseClicked="#imgStManageOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/administrator_male_240px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgStuAttendance" fitHeight="72.0" fitWidth="88.0" layoutX="157.0" layoutY="391.0" onMouseClicked="#imgStuAttendance" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/calendar_64px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgExamMarks" fitHeight="72.0" fitWidth="72.0" layoutX="157.0" layoutY="480.0" onMouseClicked="#imgExamMarks" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/combo_chart_filled_100px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgMonPayment" fitHeight="72.0" fitWidth="72.0" layoutX="157.0" layoutY="569.0" onMouseClicked="#imgMonPaymentOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/money_64px.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnStudentRegistration" alignment="TOP_LEFT" layoutX="12.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnStudentRegistrationOnAction" prefHeight="72.0" prefWidth="226.0" style="-fx-background-color: #4D4D4D;" text="Student&#10;Registration&#10;&#10;" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imgStudentRegistration" fitHeight="72.0" fitWidth="88.0" layoutX="157.0" layoutY="214.0" onMouseClicked="#imgStudentRegistration" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/add_user_male_240px.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblDate" layoutX="30.0" layoutY="46.0" prefHeight="39.0" prefWidth="184.0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="125.0" layoutY="766.0" prefHeight="20.0" prefWidth="107.0" text="Software by IJSE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" layoutX="30.0" layoutY="81.0" prefHeight="39.0" prefWidth="184.0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="250.0" prefHeight="125.0" prefWidth="1000.0" style="-fx-background-color: #CD29FF;">
+         <children>
+            <Label alignment="CENTER" layoutY="13.0" prefHeight="86.0" prefWidth="1000.0" text="(A-Team) English Class">
+               <font>
+                  <Font name="System Bold Italic" size="47.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="root" layoutX="250.0" layoutY="125.0" prefHeight="675.0" prefWidth="1000.0" />
+   </children>
+</AnchorPane>

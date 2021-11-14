@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="675.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MonthlyPaymentController">
+   <children>
+      <ImageView fitHeight="675.0" fitWidth="1000.0" opacity="0.25" pickOnBounds="true">
+         <image>
+            <Image url="@../asserts/381895.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="8.0" layoutY="4.0" prefHeight="80.0" prefWidth="926.0" text="Monthly Payment Management" textFill="#791111">
+         <font>
+            <Font name="System Bold Italic" size="40.0" />
+         </font>
+      </Label>
+      <JFXComboBox labelFloat="true" layoutX="51.0" layoutY="137.0" prefHeight="41.0" prefWidth="235.0" promptText="Student ID" />
+      <JFXTextField layoutX="51.0" layoutY="218.0" prefHeight="41.0" prefWidth="361.0" promptText="Student Name" />
+      <JFXButton fx:id="btnSetPayment" layoutX="221.0" layoutY="338.0" onAction="#btnSetPaymentOnAction" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: #851F89;" text="Set Payment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <TableView layoutX="479.0" layoutY="139.0" opacity="0.7" prefHeight="388.0" prefWidth="505.0">
+        <columns>
+          <TableColumn prefWidth="189.0" text="Month" />
+          <TableColumn prefWidth="315.0" text="Payment Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="479.0" layoutY="98.0" prefHeight="41.0" prefWidth="505.0" text="Student Name :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCancel" layoutX="819.0" layoutY="605.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="43.0" prefWidth="154.0" text="Cancel" />
+      <Label layoutX="51.0" layoutY="530.0" prefHeight="70.0" prefWidth="395.0" text="Dilan Nayanapriya">
+         <font>
+            <Font name="Algerian" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="576.0" prefHeight="35.0" prefWidth="171.0" text="Diploma in English" />
+      <Label layoutX="337.0" layoutY="594.0" prefHeight="35.0" prefWidth="222.0" text="University of Colombo Certified" />
+      <Label layoutX="337.0" layoutY="613.0" prefHeight="35.0" prefWidth="246.0" text="Well Experienced, Trained Teacher" />
+   </children>
+</AnchorPane>
