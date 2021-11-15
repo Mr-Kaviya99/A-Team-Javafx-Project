@@ -32,4 +32,9 @@ public class BatchBOImpl implements BatchBO {
         return batchDAO.getId(batchName);
     }
 
+    @Override
+    public String getName(int batchId) throws Exception {
+        return batchDAO.getName(batchId);
+    }
+
 }

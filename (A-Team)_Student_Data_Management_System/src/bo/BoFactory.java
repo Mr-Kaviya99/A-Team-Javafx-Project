@@ -1,8 +1,6 @@
 package bo;
 
-import bo.custom.impl.BatchBOImpl;
-import bo.custom.impl.CourseBOImpl;
-import bo.custom.impl.StudentBOImpl;
+import bo.custom.impl.*;
 
 public class BoFactory {
 
@@ -17,7 +15,7 @@ public class BoFactory {
     }
 
     public enum BoType{
-        STUDENT,BATCH,COURSE
+        STUDENT,BATCH,COURSE,ATTENDANCE,MONTH,PAYMENT,EXAM
     }
 
         public <T> T getBo(BoType botype) {
@@ -29,6 +27,14 @@ public class BoFactory {
                 return (T) new BatchBOImpl();
             case COURSE:
                 return (T) new CourseBOImpl();
+            case ATTENDANCE:
+                return (T) new AttendanceBOImpl();
+            case MONTH:
+                return (T) new MonthBOImpl();
+            case PAYMENT:
+                return (T) new PaymentBOImpl();
+            case EXAM:
+                return (T) new ExamBOImpl();
             default:
                 return null;
         }

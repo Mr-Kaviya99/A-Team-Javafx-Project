@@ -1,27 +1,45 @@
 package dto;
 
 public class AttendanceDTO {
-    private int attendanceID;
+    private String attId;
+    private String studentId;
+    private int batchId;
     private String arrivalTime;
     private String leavingTime;
-    private String date;
 
     public AttendanceDTO() {
     }
 
-    public AttendanceDTO(int attendanceID, String arrivalTime, String leavingTime, String date) {
-        this.attendanceID = attendanceID;
+    public AttendanceDTO(String attId, String studentId, int batchId, String arrivalTime, String leavingTime) {
+        this.attId = attId;
+        this.studentId = studentId;
+        this.batchId = batchId;
         this.arrivalTime = arrivalTime;
         this.leavingTime = leavingTime;
-        this.date = date;
     }
 
-    public int getAttendanceID() {
-        return attendanceID;
+    public String getAttId() {
+        return attId;
     }
 
-    public void setAttendanceID(int attendanceID) {
-        this.attendanceID = attendanceID;
+    public void setAttId(String attId) {
+        this.attId = attId;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(int batchId) {
+        this.batchId = batchId;
     }
 
     public String getArrivalTime() {
@@ -38,13 +56,5 @@ public class AttendanceDTO {
 
     public void setLeavingTime(String leavingTime) {
         this.leavingTime = leavingTime;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }

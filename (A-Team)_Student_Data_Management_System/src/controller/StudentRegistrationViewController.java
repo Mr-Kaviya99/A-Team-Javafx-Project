@@ -19,7 +19,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class StudentRegistrationViewController implements Initializable {
     public JFXTextField txtStudentName;
@@ -56,6 +59,9 @@ public class StudentRegistrationViewController implements Initializable {
     BatchBO batchBO = BoFactory.getInstance().getBo(BoFactory.BoType.BATCH);
     CourseBO courseBO = BoFactory.getInstance().getBo(BoFactory.BoType.COURSE);
 
+    public StudentRegistrationViewController() throws Exception {
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -70,16 +76,16 @@ public class StudentRegistrationViewController implements Initializable {
             colStudentId.setCellValueFactory(new PropertyValueFactory("studentID"));
             colStudentName.setCellValueFactory(new PropertyValueFactory("studentName"));
             colDOB.setCellValueFactory(new PropertyValueFactory("dob"));
-            colGrade.setCellValueFactory(new PropertyValueFactory("grade"));
-            colCourse.setCellValueFactory(new PropertyValueFactory("course"));
+            colGrade.setCellValueFactory(new PropertyValueFactory("batchId"));
+            colCourse.setCellValueFactory(new PropertyValueFactory("courseId"));
             colAddress.setCellValueFactory(new PropertyValueFactory("address"));
             colGurdianName.setCellValueFactory(new PropertyValueFactory("gurdianName"));
             colGuardianContact.setCellValueFactory(new PropertyValueFactory("gurdianContact"));
 
-//            tblStudent.getSelectionModel().selectedItemProperty().
-//                    addListener(((observable, oldValue, newValue) ->{
-//                        setData(newValue);
-//                    } ));
+            tblStudent.getSelectionModel().selectedItemProperty().
+                    addListener(((observable, oldValue, newValue) ->{
+                        setData(newValue);
+                    } ));
 
             loadAllStudents();
 
@@ -109,6 +115,8 @@ public class StudentRegistrationViewController implements Initializable {
         }
     }
 
+    int batchId = batchBO.getId(cmbGrade.getValue().toString());
+    int courseId = courseBO.getId(cmbCourse.getValue().toString());
 
     private void loadId() throws Exception {
         String id = bo.getStudentId();
@@ -119,8 +127,8 @@ public class StudentRegistrationViewController implements Initializable {
         txtStudentID.setText(String.valueOf(tm.getStudentID()));
         txtStudentName.setText(tm.getStudentName());
         dpDOB.setValue(LocalDate.parse(tm.getDob()));
-        cmbGrade.setValue(tm.getGrade());
-        cmbCourse.setValue(tm.getCourse());
+        cmbGrade.setValue(tm.getBatchId());
+        cmbCourse.setValue(tm.getCourseId());
         txtAddress.setText(tm.getAddress());
         txtGuardianName.setText(tm.getGurdianName());
         txtGuardianContact.setText(tm.getGurdianContact());
@@ -128,21 +136,21 @@ public class StudentRegistrationViewController implements Initializable {
 
     private void loadAllStudents() throws Exception {
         ObservableList<StudentTM> tmList = FXCollections.observableArrayList();
-        List<StudentDTO> allCustomers = bo.getAllStudent();
-        for (StudentDTO dto : allCustomers) {
+        List<StudentDTO> allStudent = bo.getAllStudent();
+        for (StudentDTO dto : allStudent) {
             StudentTM tm = new StudentTM(dto.getStudentId(),
                     dto.getStudentName(),
                     dto.getDob(),
-                    dto.getCourseId(),
-                    dto.getBatchId(),
+                    batchId,
+                    courseId,
                     dto.getAddress(),
                     dto.getGuardianName(),
                     dto.getGuardianContact()
                     );
             tmList.add(tm);
-            System.out.println(dto.getBatchId());
         }
         tblStudent.setItems(tmList);
+        tblStudent.refresh();
 
     }
 
@@ -151,28 +159,54 @@ public class StudentRegistrationViewController implements Initializable {
 
     public void btnAddStudentOnAction(ActionEvent actionEvent) throws Exception {
 
-        int batchId = batchBO.getId(cmbGrade.getValue().toString());
-        int courseId = courseBO.getId(cmbCourse.getValue().toString());
 
 
-        boolean isSaved = bo.saveStudent(new StudentDTO(txtStudentID.getText(),
-                        txtStudentName.getText(),
-                        dpDOB.getValue().toString(),
-                        batchId,
-                        courseId,
-                        txtAddress.getText(),
-                        txtGuardianName.getText(),
-                        txtGuardianContact.getText()
-        ));
-
-        if (isSaved) {
-            new Alert(Alert.AlertType.INFORMATION, "Registration Successful", ButtonType.OK).show();
-            Clear();
-        } else {
-            new Alert(Alert.AlertType.INFORMATION, "Registration Failed", ButtonType.OK).show();
-        }
-
-
+//        if (Pattern.compile("^[A-z ]{1,50}$").matcher(txtStudentName.getText()).matches()) {
+//            txtStudentName.setFocusColor(Paint.valueOf("green"));
+//            txtStudentName.requestFocus();
+//            if (Pattern.compile("^[A-z  , 0-9 / \\\\]{1,30}$").matcher(txtAddress.getText()).matches()) {
+//                txtAddress.setFocusColor(Paint.valueOf("green"));
+//                txtAddress.requestFocus();
+//                if (Pattern.compile("^[A-z ]{1,50}$").matcher(txtGuardianName.getText()).matches()) {
+//                    txtGuardianName.setFocusColor(Paint.valueOf("green"));
+//                    txtGuardianName.requestFocus();
+//                    if (Pattern.compile("[0-9]{3}(-)[0-9]{7}$").matcher(txtGuardianContact.getText()).matches()) {
+//                        txtGuardianContact.setFocusColor(Paint.valueOf("green"));
+//                        txtGuardianContact.requestFocus();
+//
+//                        boolean isSaved = bo.saveStudent(new StudentDTO(txtStudentID.getText(),
+//                                txtStudentName.getText(),
+//                                dpDOB.getValue().toString(),
+//                                batchId,
+//                                courseId,
+//                                txtAddress.getText(),
+//                                txtGuardianName.getText(),
+//                                txtGuardianContact.getText()
+//                        ));
+//
+//                        if (isSaved) {
+//                            new Alert(Alert.AlertType.INFORMATION, "Registration Successful", ButtonType.OK).show();
+//                            Clear();
+//                        } else {
+//                            new Alert(Alert.AlertType.INFORMATION, "Registration Failed", ButtonType.OK).show();
+//                        }
+//
+//                    }else{
+//                        txtGuardianContact.setFocusColor(Paint.valueOf("red"));
+//                        txtGuardianContact.requestFocus();
+//                    }
+//                }else{
+//                    txtGuardianName.setFocusColor(Paint.valueOf("red"));
+//                    txtGuardianName.requestFocus();
+//                }
+//            }else{
+//                txtAddress.setFocusColor(Paint.valueOf("red"));
+//                txtAddress.requestFocus();
+//            }
+//        }else{
+//            txtStudentName.setFocusColor(Paint.valueOf("red"));
+//            txtStudentName.requestFocus();
+//        }
 
 
 

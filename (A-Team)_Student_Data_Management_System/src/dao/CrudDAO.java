@@ -3,6 +3,7 @@ package dao;
 import entity.SuperEntity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
     public interface CrudDAO <T extends SuperEntity,ID extends Serializable> extends SuperDAO {
@@ -15,5 +16,5 @@ import java.util.List;
 
         List<T> getAll() throws Exception;
 
-        T get()throws Exception;
+        T get(ID key)throws Exception;
 }

@@ -3,10 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,15 +23,13 @@
             <Font name="System Bold Italic" size="40.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtDate" labelFloat="true" layoutX="27.0" layoutY="292.0" prefHeight="35.0" prefWidth="278.0" promptText="Arrival Time" unFocusColor="#851f89" />
-      <JFXButton fx:id="btnDone" layoutX="103.0" layoutY="438.0" onAction="#btnDoneOnAction" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: #851F89;" text="Done" textFill="WHITE">
+      <JFXButton fx:id="btnArrival" layoutX="99.0" layoutY="355.0" onAction="#btnArrivalOnAction" prefHeight="43.0" prefWidth="278.0" style="-fx-background-color: #851F89;" text="Add Arrival Time" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </JFXButton>
       <Button fx:id="btnCancel" layoutX="817.0" layoutY="605.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="43.0" prefWidth="154.0" text="Cancel" />
-      <JFXTextField fx:id="txtStudentID" labelFloat="true" layoutX="27.0" layoutY="162.0" onAction="#txtStudentIDOnAction" prefHeight="35.0" prefWidth="278.0" promptText="Student ID" unFocusColor="#851f89" />
-      <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="27.0" layoutY="226.0" prefHeight="35.0" prefWidth="278.0" promptText="Student Name" unFocusColor="#851f89" />
+      <JFXTextField fx:id="txtStudentId" labelFloat="true" layoutX="559.0" layoutY="141.0" prefHeight="35.0" prefWidth="278.0" promptText="Student ID" unFocusColor="#851f89" />
       <Label layoutX="27.0" layoutY="535.0" prefHeight="70.0" prefWidth="395.0" text="Dilan Nayanapriya">
          <font>
             <Font name="Algerian" size="36.0" />
@@ -41,17 +38,13 @@
       <Label layoutX="313.0" layoutY="581.0" prefHeight="35.0" prefWidth="171.0" text="Diploma in English" />
       <Label layoutX="313.0" layoutY="599.0" prefHeight="35.0" prefWidth="222.0" text="University of Colombo Certified" />
       <Label layoutX="313.0" layoutY="618.0" prefHeight="35.0" prefWidth="246.0" text="Well Experienced, Trained Teacher" />
-      <JFXComboBox fx:id="cmbBatchID" labelFloat="true" layoutX="27.0" layoutY="94.0" prefHeight="43.0" prefWidth="278.0" promptText="Batch" />
-      <TableView layoutX="329.0" layoutY="105.0" opacity="0.7" prefHeight="430.0" prefWidth="646.0">
-        <columns>
-          <TableColumn prefWidth="92.0" text="Student ID" />
-          <TableColumn prefWidth="152.0" text="Student Name" />
-            <TableColumn prefWidth="104.0" text="Grade" />
-            <TableColumn prefWidth="112.0" text="Date" />
-            <TableColumn prefWidth="86.0" text="Time In" />
-            <TableColumn prefWidth="102.0" text="Time Out" />
-        </columns>
-      </TableView>
-      <JFXTextField fx:id="txtDate1" labelFloat="true" layoutX="27.0" layoutY="360.0" prefHeight="35.0" prefWidth="278.0" promptText="Leaving Time" unFocusColor="#851f89" />
+      <JFXComboBox fx:id="cmbBatch" labelFloat="true" layoutX="99.0" layoutY="133.0" prefHeight="43.0" prefWidth="278.0" promptText="Batch" />
+      <JFXTimePicker fx:id="tpArrivalTime" layoutX="99.0" layoutY="251.0" prefHeight="31.0" prefWidth="278.0" promptText="Arrival Time" />
+      <JFXTimePicker fx:id="tpLeavingTime" editable="true" layoutX="559.0" layoutY="251.0" prefHeight="31.0" prefWidth="278.0" promptText="Leaving Time" />
+      <JFXButton fx:id="btnLeaving" layoutX="559.0" layoutY="355.0" onAction="#btnLeavingOnAction" prefHeight="43.0" prefWidth="278.0" style="-fx-background-color: #851F89;" text="Add Leaving Time" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

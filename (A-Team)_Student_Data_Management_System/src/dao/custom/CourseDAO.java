@@ -9,4 +9,5 @@ public interface CourseDAO  extends SuperDAO<CourseEntity,String> {
     List<CourseEntity> getAll() throws Exception;
     public  int getId(String courseName)throws Exception;
     public int getNextId() throws Exception;
+    String getName(int courseId) throws Exception;
 }

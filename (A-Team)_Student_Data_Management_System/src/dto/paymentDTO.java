@@ -1,40 +1,52 @@
 package dto;
 
-public class paymentDTO {
-    private int paymentID;
-    private String paymentMonth;
-    private double monthlyPayment;
+import java.math.BigDecimal;
 
-    public paymentDTO() {
+public class PaymentDTO {
+    private String paymentID;
+    private String studentId;
+    private String monthName;
+    private BigDecimal monthlyFee;
+
+    public PaymentDTO() {
     }
 
-    public paymentDTO(int paymentID, String paymentMonth, double monthlyPayment) {
+    public PaymentDTO(String paymentID, String studentId, String monthName, BigDecimal monthlyFee) {
         this.paymentID = paymentID;
-        this.paymentMonth = paymentMonth;
-        this.monthlyPayment = monthlyPayment;
+        this.studentId = studentId;
+        this.monthName = monthName;
+        this.monthlyFee = monthlyFee;
     }
 
-    public int getPaymentID() {
+    public String getPaymentID() {
         return paymentID;
     }
 
-    public void setPaymentID(int paymentID) {
+    public void setPaymentID(String paymentID) {
         this.paymentID = paymentID;
     }
 
-    public String getPaymentMonth() {
-        return paymentMonth;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setPaymentMonth(String paymentMonth) {
-        this.paymentMonth = paymentMonth;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public double getMonthlyPayment() {
-        return monthlyPayment;
+    public String getMonthName() {
+        return monthName;
     }
 
-    public void setMonthlyPayment(double monthlyPayment) {
-        this.monthlyPayment = monthlyPayment;
+    public void setMonthName(String monthName) {
+        this.monthName = monthName;
+    }
+
+    public BigDecimal getMonthlyFee() {
+        return monthlyFee;
+    }
+
+    public void setMonthlyFee(BigDecimal monthlyFee) {
+        this.monthlyFee = monthlyFee;
     }
 }

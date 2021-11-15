@@ -1,16 +1,18 @@
-package entity;
+package View.tm;
 
-public class AttendanceEntity implements SuperEntity {
+import java.time.LocalTime;
+
+public class AttendanceTM {
     private String attendanceId;
     private String studentId;
-    private int batchId;
+    private String batchId;
     private String arrivalTime;
     private String leavingTime;
 
-    public AttendanceEntity() {
+    public AttendanceTM() {
     }
 
-    public AttendanceEntity(String attendanceId, String studentId, int batchId, String arrivalTime, String leavingTime) {
+    public AttendanceTM(String attendanceId, String studentId, String batchId, String arrivalTime, String leavingTime) {
         this.attendanceId = attendanceId;
         this.studentId = studentId;
         this.batchId = batchId;
@@ -18,12 +20,13 @@ public class AttendanceEntity implements SuperEntity {
         this.leavingTime = leavingTime;
     }
 
-    public AttendanceEntity(String studentId, int batchId, String arrivalTime, String leavingTime) {
+    public AttendanceTM(String studentId, String batchId, String arrivalTime, String leavingTime) {
         this.studentId = studentId;
         this.batchId = batchId;
         this.arrivalTime = arrivalTime;
         this.leavingTime = leavingTime;
     }
+
 
     public String getAttendanceId() {
         return attendanceId;
@@ -41,27 +44,29 @@ public class AttendanceEntity implements SuperEntity {
         this.studentId = studentId;
     }
 
-    public int getBatchId() {
+    public String getBatchId() {
         return batchId;
     }
 
-    public void setBatchId(int courseId) {
-        this.batchId = batchId;
+    public void setBatchId(String courseId) {
+        this.batchId = courseId;
     }
 
-    public String getArrivalTime() {
-        return arrivalTime;
+    public LocalTime getArrivalTime() {
+        return LocalTime.parse(arrivalTime);
     }
 
     public void setArrivalTime(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getLeavingTime() {
-        return leavingTime;
+    public LocalTime getLeavingTime() {
+        return LocalTime.parse(leavingTime);
     }
 
     public void setLeavingTime(String leavingTime) {
         this.leavingTime = leavingTime;
     }
+
+
 }

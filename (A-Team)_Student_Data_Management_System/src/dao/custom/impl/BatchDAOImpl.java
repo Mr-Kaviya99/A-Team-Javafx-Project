@@ -38,4 +38,14 @@ public class BatchDAOImpl implements BatchDAO {
     public int getNextId() throws Exception {
         return 0;
     }
+
+    @Override
+    public String getName(int batchId) throws Exception {
+        ResultSet resultSet = CrudUtil.execute("SELECT batchName FROM Batch WHERE batchId=?",batchId);
+        String batchName = "";
+        if (resultSet.next()){
+            batchName = resultSet.getString(1);
+        }
+        return batchName;
+    }
 }

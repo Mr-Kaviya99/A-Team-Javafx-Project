@@ -25,6 +25,14 @@ public class StudentEntity implements SuperEntity {
     }
 
     public StudentEntity(String studentId, int batchId, int courseId, String studentName, String dob, String address, String guardianName, String guardianContact) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.dob = dob;
+        this.batchId = batchId;
+        this.courseId = courseId;
+        this.address = address;
+        this.guardianName = guardianName;
+        this.guardianContact = guardianContact;
     }
 
     public String getStudentId() {

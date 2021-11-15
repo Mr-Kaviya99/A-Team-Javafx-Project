@@ -88,7 +88,7 @@ public class DashBoardViewController {
             DateTimeFormatter formatter=DateTimeFormatter.ofPattern("hh:mm");
             lblTime.setText(LocalDateTime.now().format(formatter));
         }),
-        new KeyFrame(Duration.seconds(1)));
+                new KeyFrame(Duration.seconds(1)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }

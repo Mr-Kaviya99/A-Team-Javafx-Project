@@ -5,7 +5,7 @@ public class ExamDTO {
     private String examName;
     private int marks;
 
-    public ExamDTO() {
+    public ExamDTO(int i, String text) {
     }
 
     public ExamDTO(int examID, String examName, int marks) {

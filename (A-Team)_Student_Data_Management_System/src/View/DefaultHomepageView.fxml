@@ -18,5 +18,10 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
+      <Label fx:id="lblStudentCount" layoutX="157.0" layoutY="124.0" prefHeight="52.0" prefWidth="144.0">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

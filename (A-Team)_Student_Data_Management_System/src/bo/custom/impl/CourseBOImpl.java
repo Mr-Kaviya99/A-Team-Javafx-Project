@@ -29,4 +29,9 @@ public class CourseBOImpl implements CourseBO {
     public int getId(String courseName) throws Exception {
         return courseDAO.getId(courseName);
     }
+
+    @Override
+    public String getName(int courseId) throws Exception {
+        return courseDAO.getName(courseId);
+    }
 }

@@ -37,4 +37,14 @@ public class CourseDAOImpl implements CourseDAO {
     public int getNextId() throws Exception {
         return 0;
     }
+
+    @Override
+    public String getName(int courseId) throws Exception {
+        ResultSet resultSet = CrudUtil.execute("SELECT courseName FROM Course WHERE courseId=?",courseId);
+        String courseName = "";
+        if (resultSet.next()){
+            courseName = resultSet.getString(1);
+        }
+        return courseName;
+    }
 }

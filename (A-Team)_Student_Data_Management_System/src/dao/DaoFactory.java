@@ -1,9 +1,6 @@
 package dao;
 
-import dao.custom.impl.BatchDAOImpl;
-import dao.custom.impl.CourseDAOImpl;
-import dao.custom.impl.ExamDAOImpl;
-import dao.custom.impl.StudentDAOImpl;
+import dao.custom.impl.*;
 
 public class DaoFactory {
 
@@ -17,7 +14,7 @@ public class DaoFactory {
     }
 
     public enum DAOType {
-       STUDENT,BATCH,COURSE
+       STUDENT,BATCH,COURSE,ATTENDANCE,MONTH,PAYMENT,EXAM
     }
 
     public <T extends SuperDAO> T getDao(DAOType type) {
@@ -28,6 +25,14 @@ public class DaoFactory {
                 return (T) new BatchDAOImpl();
             case COURSE:
                 return (T) new CourseDAOImpl();
+            case ATTENDANCE:
+                return (T) new AttendanceDAOImpl();
+            case MONTH:
+                return (T) new MonthDAOImpl();
+            case PAYMENT:
+                return (T) new PaymentDAOImpl();
+            case EXAM:
+                return (T) new ExamDAOImpl();
             default:
                 return null;
         }
