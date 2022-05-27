@@ -1,0 +1,110 @@
+drop database Manawa;
+
+create database Manawa;
+
+use Manawa;
+
+create table Grade(
+	Grade_Id int auto_increment,
+	Grade_Name Varchar(10 ) not null,
+	constraint primary key(Grade_Id)
+);
+
+create table Parent(
+	Parent_Id int auto_increment,
+	Parent_Name Varchar(100) not null,
+	Phone_No Varchar(10) not null,
+	constraint primary key(Parent_Id)
+);
+
+create table Student(
+	Reg_Date Varchar(10) not null,
+	Student_Id int auto_increment,
+	Student_Name varchar(100) not null,
+	Address varchar(50) not null,
+	DOB varchar(10) not null,
+	Gender varchar(10) not null,
+	Grade_Id int,
+	Parent_Id int,
+	constraint primary key(Student_Id),
+	constraint foreign key (Grade_Id) references Grade(Grade_Id) 
+	on delete cascade on update cascade,
+	constraint foreign key (Parent_Id) references Parent(Parent_Id) 
+	on delete cascade on update cascade
+);
+
+create table Subject(
+	Sub_Id int auto_increment,
+	Sub_Name Varchar(50) not null,
+	Sub_Discrition Varchar(50) not null,
+	Constraint primary key(Sub_Id)
+);
+
+create table Registration(
+	Student_Details_Id int auto_increment,
+	Student_Id int,
+	Sub_Id int,
+	constraint primary key(Student_Details_Id),
+	constraint foreign key(Student_Id) references Student(Student_Id) 
+	on delete cascade on update cascade,
+	constraint foreign key(Sub_Id) references Subject(Sub_Id) 
+	on delete cascade on update cascade
+);
+
+create table Teacher(
+	Teacher_Id int auto_increment,
+	Teacher_Name Varchar(100) not null,
+	Phone_No Varchar(10) not null,
+	Sub_Id int,
+	Grade_Id int,
+	constraint primary key(Teacher_Id),
+	constraint foreign key(Sub_Id) references Subject(Sub_Id) 
+	on delete cascade on update cascade,
+	constraint fortign key(Grade_Id) references Grade(Grade_Id)
+	on delete cascade on update cascade 
+);
+
+
+create table Payment(
+	Payment_Id int auto_increment,
+	Payment_Date Varchar(10) not null,
+	Class_Fee DOUBLE(10,2) not null,
+	Reg_ID int,
+	constraint primary key(Payment_Id),
+	constraint foreign key (Reg_ID) references Registration(Reg_ID) 
+	on delete cascade on update cascade	
+);
+
+Create table Attendance(
+	Attendance_Id int auto_increment,
+	Date Varchar(10) not null,
+	Attend Varchar(10) not null,
+	constraint primary key(Attendance_Id),
+	constraint foreign key (Reg_ID) references Registration(Reg_ID) 
+	on delete cascade on update cascade
+);
+
+create table Exam(
+	Exam_Id int auto_increment,
+	Exam_Date Varchar(10) not null,
+	constraint primary key(Exam_Id)
+);
+
+create table Exam_Details(
+	Exam_Details_Id int auto_increment,
+	Marks Varchar(10) not null,
+	Reg_ID int,
+	Exam_Id int,
+	constraint primary key(Exam_Details_Id),
+	constraint foreign key(Reg_ID) references Registration(Reg_ID) 
+	on delete cascade on update cascade,
+	constraint foreign key(Exam_Id) references Exam(Exam_Id)
+	on delete cascade on update cascade
+);
+
+
+
+
+
+
+
